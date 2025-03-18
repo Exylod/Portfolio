@@ -1,4 +1,4 @@
-import './styles/main.css';
+import "./style.css"
 import html2pdf from 'html2pdf.js';
 
 // Wait for the DOM to be fully loaded
