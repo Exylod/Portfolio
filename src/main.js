@@ -1,9 +1,22 @@
+import './styles/main.css';
 import html2pdf from 'html2pdf.js';
 
-// Example function to export your CV as PDF
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Set up the PDF export button
+  const exportButton = document.getElementById('export-cv-btn');
+  if (exportButton) {
+    exportButton.addEventListener('click', exportCVAsPDF);
+  }
+  
+  // Add any other initialization code here
+});
+
 function exportCVAsPDF() {
-  const cvElement = document.getElementById('cv');
-  const opt = {
+  const cvContent = document.getElementById('cv-content');
+  
+  // PDF export options
+  const options = {
     margin: 10,
     filename: 'my-cv.pdf',
     image: { type: 'jpeg', quality: 0.98 },
@@ -11,8 +24,6 @@ function exportCVAsPDF() {
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
   
-  html2pdf().set(opt).from(cvElement).save();
+  // Generate and download the PDF
+  html2pdf().set(options).from(cvContent).save();
 }
-
-// Add a click event listener to your export button
-document.getElementById('export-cv-btn').addEventListener('click', exportCVAsPDF);
