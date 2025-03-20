@@ -65,3 +65,8 @@ section {
   padding: 2rem;
   min-height: 50vh;
 }
+
+.parent{
+  display: grid;
+  grid-template-columns: minimax(150px, 25%)1fr;
+}
