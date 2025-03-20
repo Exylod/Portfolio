@@ -8,6 +8,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* --link-gradient: linear-gradient(to bottom right, #646cff, #535bf2); */
+  /* --image-gradient: linear-gradient(to bottom right, crimson, coral); */
+
+  --accent-gradient: linear-gradient(to right, #646cff, #535bf2);
+  --subtle-gradient: linear-gradient(to right, rgba(100, 108, 255, 0.2), rgba(83, 91, 242, 0.2));
 }
 
 a {
@@ -68,5 +74,231 @@ section {
 
 .parent{
   display: grid;
-  grid-template-columns: minimax(150px, 25%)1fr;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+}
+
+/* a.gradient-shadow { */
+/*   position: relative; */
+/*   padding: 0.5rem 1rem; */
+/*   background-image: var(--link-gradient); */
+/*   color: white; */
+/*   text-decoration: none; */
+/*   border-radius: 0.5rem; */
+/*   display: inline-block; */
+/*   transition: transform 0.3s ease; */
+/* } */
+/**/
+/* a.gradient-shadow::after { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   inset: 0; */
+/*   background-image: var(--link-gradient); */
+/*   border-radius: inherit; */
+/*   filter: blur(15px) brightness(1.5); */
+/*   transform: translateY(20%) scale(0.9); */
+/*   z-index: -1; */
+/*   opacity: 0.7; */
+/*   transition: transform 0.3s ease, opacity 0.3s ease; */
+/* } */
+/**/
+/* a.gradient-shadow:hover { */
+/*   transform: translateY(-5px); */
+/* } */
+/**/
+/* a.gradient-shadow:hover::after { */
+/*   transform: translateY(25%) scale(1); */
+/*   opacity: 0.9; */
+/* } */
+/**/
+/* /* Add gradient shadow to images */ */
+/* .image-gradient-shadow { */
+/*   position: relative; */
+/*   border-radius: 1rem; */
+/*   overflow: hidden; /* To ensure the image respects the border-radius */ */
+/*   display: inline-block; */
+/* } */
+/**/
+/* .image-gradient-shadow img { */
+/*   display: block; */
+/*   max-width: 100%; */
+/*   height: auto; */
+/* } */
+/**/
+/* .image-gradient-shadow::after { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   inset: 0; */
+/*   background-image: var(--image-gradient); */
+/*   border-radius: inherit; */
+/*   filter: blur(25px) brightness(1.5); */
+/*   transform: translateY(15%) scale(0.95); */
+/*   z-index: -1; */
+/*   pointer-events: none; /* Ensure we can still interact with the image */ */
+/* } */
+/**/
+/* /* Variant with colored border */ */
+/* .image-gradient-border { */
+/*   position: relative; */
+/*   border-radius: 1rem; */
+/*   padding: 4px; /* Border width */ */
+/*   background-image: var(--image-gradient); */
+/*   display: inline-block; */
+/* } */
+/**/
+/* .image-gradient-border img { */
+/*   display: block; */
+/*   border-radius: calc(1rem - 4px); */
+/*   max-width: 100%; */
+/*   height: auto; */
+/* } */
+/**/
+/* .image-gradient-border::after { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   inset: 0; */
+/*   background-image: var(--image-gradient); */
+/*   border-radius: inherit; */
+/*   filter: blur(25px) brightness(1.5); */
+/*   transform: translateY(15%) scale(0.95); */
+/*   z-index: -1; */
+/* } */
+
+/* Text link with gradient underline effect */
+a.gradient-underline {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  padding-bottom: 2px;
+  background-image: none;
+}
+
+a.gradient-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+a.gradient-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Text with subtle gradient */
+.gradient-text {
+  background-image: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Image with subtle gradient border on hover */
+.subtle-image-gradient {
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.subtle-image-gradient img {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.subtle-image-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--accent-gradient);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.subtle-image-gradient:hover img {
+  transform: scale(1.05);
+}
+
+.subtle-image-gradient:hover::before {
+  opacity: 0.2;
+}
+
+/* Nav links with gradient hover effect */
+nav ul li a {
+  position: relative;
+  padding: 0.5rem 0;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  font-weight: 500;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Button with gradient background that appears on hover */
+.gradient-hover-button {
+  position: relative;
+  padding: 0.6rem 1.2rem;
+  background-color: transparent;
+  color: #646cff;
+  border: 1px solid #646cff;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.gradient-hover-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--accent-gradient);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-hover-button:hover {
+  color: white;
+}
+
+.gradient-hover-button:hover::before {
+  opacity: 1;
+}
+
+/* Section with subtle gradient background */
+.gradient-section {
+  background-image: var(--subtle-gradient);
+  padding: 2rem;
+  border-radius: 8px;
 }
