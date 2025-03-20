@@ -2,7 +2,7 @@ import "./style.css"
 import html2pdf from 'html2pdf.js';
 
 // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('load', () => {
   // Set up the PDF export button
   const exportButton = document.getElementById('export-cv-btn');
   if (exportButton) {
