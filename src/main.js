@@ -1,5 +1,5 @@
 import "./style.css"
-import html2pdf from 'html2pdf.js';
+import html2pdf from 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('load', () => {
