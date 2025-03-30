@@ -2,18 +2,44 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #f5edd6;
+  background-color: #181818;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* --link-gradient: linear-gradient(to bottom right, #646cff, #535bf2); */
-  /* --image-gradient: linear-gradient(to bottom right, crimson, coral); */
+  --accent-gradient: linear-gradient(to right, #fff, #aff);
+  --subtle-gradient: linear-gradient(to right, #aff, #b1b5ff);
+}
 
-  --accent-gradient: linear-gradient(to right, #eff0ff, #737aff);
-  --subtle-gradient: linear-gradient(to right, rgba(100, 108, 255, 0.2), rgba(83, 91, 242, 0.2));
+@font-face {
+  font-family: "acro_monoregular";
+  src: url("src/fonts/acromono-webfont.woff") format("woff"),
+    url("src/fonts/acromono-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "oytregular";
+  src: url("src/fonts/oyt-regular-webfont.woff2") format("woff2"),
+    url("src/fonts/oyt-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "velistaregular";
+  src: url("src/fonts/velista-webfont.woff") format("woff"),
+    url("src/fonts/velista-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol, a {
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 a {
@@ -22,17 +48,17 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #eff0ff;
 }
 
 body {
+  font-family: "DM Serif Text", serif;
   margin: 0;
   min-width: 320px;
-  /* Remove the display: flex and place-items which are causing layout issues */
 }
 
 h1, h2, h3 {
-  font-family: "Modak", cursive;
+  font-family: "Playfair Display", sans-serif;
   line-height: 1.1;
 }
 
@@ -53,6 +79,22 @@ h3 {
 header {
   background: #333;
   padding: 1rem;
+}
+
+.watermark {
+  font-family: "velistaregular", bold;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  pointer-events: none;
+  user-select: none;
+  font-size: 1.5rem;
+  padding: 8px 15px;
+  /* background-color: #f5edd680; */
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -77,97 +119,11 @@ section {
   grid-template-columns: minmax(150px, 25%) 1fr;
 }
 
-/* a.gradient-shadow { */
-/*   position: relative; */
-/*   padding: 0.5rem 1rem; */
-/*   background-image: var(--link-gradient); */
-/*   color: white; */
-/*   text-decoration: none; */
-/*   border-radius: 0.5rem; */
-/*   display: inline-block; */
-/*   transition: transform 0.3s ease; */
-/* } */
-/**/
-/* a.gradient-shadow::after { */
-/*   content: ""; */
-/*   position: absolute; */
-/*   inset: 0; */
-/*   background-image: var(--link-gradient); */
-/*   border-radius: inherit; */
-/*   filter: blur(15px) brightness(1.5); */
-/*   transform: translateY(20%) scale(0.9); */
-/*   z-index: -1; */
-/*   opacity: 0.7; */
-/*   transition: transform 0.3s ease, opacity 0.3s ease; */
-/* } */
-/**/
-/* a.gradient-shadow:hover { */
-/*   transform: translateY(-5px); */
-/* } */
-/**/
-/* a.gradient-shadow:hover::after { */
-/*   transform: translateY(25%) scale(1); */
-/*   opacity: 0.9; */
-/* } */
-/**/
-/* /* Add gradient shadow to images */ */
-/* .image-gradient-shadow { */
-/*   position: relative; */
-/*   border-radius: 1rem; */
-/*   overflow: hidden; /* To ensure the image respects the border-radius */ */
-/*   display: inline-block; */
-/* } */
-/**/
-/* .image-gradient-shadow img { */
-/*   display: block; */
-/*   max-width: 100%; */
-/*   height: auto; */
-/* } */
-/**/
-/* .image-gradient-shadow::after { */
-/*   content: ""; */
-/*   position: absolute; */
-/*   inset: 0; */
-/*   background-image: var(--image-gradient); */
-/*   border-radius: inherit; */
-/*   filter: blur(25px) brightness(1.5); */
-/*   transform: translateY(15%) scale(0.95); */
-/*   z-index: -1; */
-/*   pointer-events: none; /* Ensure we can still interact with the image */ */
-/* } */
-/**/
-/* /* Variant with colored border */ */
-/* .image-gradient-border { */
-/*   position: relative; */
-/*   border-radius: 1rem; */
-/*   padding: 4px; /* Border width */ */
-/*   background-image: var(--image-gradient); */
-/*   display: inline-block; */
-/* } */
-/**/
-/* .image-gradient-border img { */
-/*   display: block; */
-/*   border-radius: calc(1rem - 4px); */
-/*   max-width: 100%; */
-/*   height: auto; */
-/* } */
-/**/
-/* .image-gradient-border::after { */
-/*   content: ""; */
-/*   position: absolute; */
-/*   inset: 0; */
-/*   background-image: var(--image-gradient); */
-/*   border-radius: inherit; */
-/*   filter: blur(25px) brightness(1.5); */
-/*   transform: translateY(15%) scale(0.95); */
-/*   z-index: -1; */
-/* } */
-
 /* Text link with gradient underline effect */
 a.gradient-underline {
   position: relative;
   text-decoration: none;
-  color: inherit;
+  color: #eff0ff;
   font-weight: 500;
   padding-bottom: 2px;
   background-image: none;
@@ -237,7 +193,7 @@ nav ul li a {
   padding: 0.5rem 0;
   margin: 0 1rem;
   text-decoration: none;
-  color: inherit;
+  color: #eff0ff;
   background: none;
   font-weight: 500;
 }
