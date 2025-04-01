@@ -82,7 +82,7 @@ header {
 }
 
 .watermark {
-  font-family: "velistaregular", bold;
+  font-family: "Playfair Display", bold;
   opacity: 0.8;
   position: fixed;
   bottom: 20px;
