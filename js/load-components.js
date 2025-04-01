@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Load navigation
   fetch('components/nav.html')
     .then(response => {
       if (!response.ok) {
@@ -55,6 +54,20 @@ loadFonts();
 
 window.loadFonts = loadFonts;
 
-function loadCSS() {
 
+function loadCSS() {
+}
+
+function addWatermark(targetElementId, watermarkText) {
+  const watermarkDiv = document.createElement("div");
+  watermarkDiv.classList.add("watermark");  // Add the class "watermark"
+  watermarkDiv.textContent = watermarkText;
+
+  const targetElement = document.getElementById(targetElementId);
+
+  if (targetElement) {
+    targetElement.appendChild(watermarkDiv);
+  } else {
+    console.error(`Target element with ID '${targetElementId}' not found.`);
+  }
 }
