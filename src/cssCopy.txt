@@ -1,12 +1,9 @@
-@import "tailwindcss";
-
 :root {
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
   color: #f5edd6;
-  /* background-color: #181181B; */
-  background-color: bg-gray-850;
+  background-color: #181818;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
